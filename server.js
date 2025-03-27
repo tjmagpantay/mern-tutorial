@@ -1,16 +1,23 @@
 require('dotenv').config();
 
 const express = require('express');
+const workoutsRoutes = require('./routes/workouts');
 
 const app = express();
 
-// Routes
-app.get('/', (req, res) => {
-    res.json({ msg: "Hello World" });
-}); 
+// Middleware to log requests
+app.use(express.json());
 
-// Listen for requests
-app.listen(process.env, () => {
-    console.log("Server is listening on port", process.env.PORT);
+app.use((req, res, next) => {
+   console.log(req.path, req.method);
+   next();
 });
 
+// Routes
+app.use('/api/workouts', workoutsRoutes);
+
+// Listen for requests on the correct port
+const PORT = process.env.PORT || 3000; // Default to 3000 if PORT is not set
+app.listen(PORT, () => {
+    console.log("Server is listening on port", PORT);
+});
