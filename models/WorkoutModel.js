@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const Schema = new mongoose.Schema({})
+// Reference the Schema class correctly
+const Schema = mongoose.Schema;
 
 const workoutSchema = new Schema({
     title: {
@@ -14,8 +15,8 @@ const workoutSchema = new Schema({
     load: {
         type: Number,
         required: true
-    },
+    }
 }, { timestamps: true });
 
-// create model
+// Create and export the model
 module.exports = mongoose.model('Workout', workoutSchema);
