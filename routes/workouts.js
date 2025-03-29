@@ -3,6 +3,8 @@ const {
     getAllWorkouts,
     getSingleWorkout,
     createWorkout,
+    deleteWorkout,
+    updateWorkout,
 } = require('../controllers/workoutControllers');
 
 const Workout = require('../models/WorkoutModel'); // Ensure this is correctly required
@@ -19,33 +21,9 @@ router.get('/:id', getSingleWorkout); // ✅ Fixed `this.getSingleWorkout`
 router.post('/', createWorkout);
 
 // DELETE a workout
-router.delete('/:id', async (req, res) => {
-    try {
-        const workout = await Workout.findByIdAndDelete(req.params.id);
-        if (!workout) {
-            return res.status(404).json({ error: 'Workout not found' });
-        }
-        res.status(200).json({ message: 'Workout deleted successfully' });
-    } catch (error) {
-        res.status(500).json({ error: 'Server error' });
-    }
-});
+router.delete('/:id', deleteWorkout); // ✅ Fixed `this.deleteWorkout`
 
 // UPDATE a workout
-router.patch('/:id', async (req, res) => {
-    try {
-        const workout = await Workout.findByIdAndUpdate(
-            req.params.id, 
-            req.body, 
-            { new: true }
-        );
-        if (!workout) {
-            return res.status(404).json({ error: 'Workout not found' });
-        }
-        res.status(200).json(workout);
-    } catch (error) {
-        res.status(500).json({ error: 'Server error' });
-    }
-});
+router.patch('/:id', updateWorkout); // ✅ Fixed `this.updateWorkout`
 
 module.exports = router;
