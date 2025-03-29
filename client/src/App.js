@@ -3,8 +3,11 @@ import { BrowseRouter, Route, Route} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      
-      </header>
+      <BrowserRouter>
+        <div className="container">
+          <Route path="/" exact component={Home} />
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
