@@ -1,7 +1,7 @@
 import { useEffect , useState} from "react";
 
 const Home = () => {
-  const [workouts, setWorkouts] = useState(null)
+const [workouts, setWorkouts] = useState(null)
 
   // Fetch workouts from the API when the component mounts
 
