@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.navbar {
+  width: 100%;
+  padding: 10px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar-brand {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f8b400; /* Accent color */
+}
+
+.container-fluid {
+  padding-left: 50px;
+  padding-right: 50px;
+}
