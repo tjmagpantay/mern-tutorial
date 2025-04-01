@@ -4,6 +4,7 @@ const Home = () => {
 const [workouts, setWorkouts] = useState(null)
 
   // Fetch workouts from the API when the component mounts
+  //Woeking
 
 useEffect(() => {
   const fetchWorkouts = async () => {
