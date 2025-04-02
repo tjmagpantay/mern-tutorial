@@ -6,17 +6,9 @@ body {
     color: #333;
 }
 
-/* Header Styles */
-header {
-    background: #35424a;
-    color: #ffffff;
-    padding: 10px 0;
-    text-align: center;
-}
-
 /* Navigation Styles */
 nav {
-    margin: 20px 0;
+    margin: 0;
     background: #2c3e50; /* Lighter shade for the navigation bar */
 }
 
