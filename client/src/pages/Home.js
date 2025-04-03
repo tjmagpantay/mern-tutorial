@@ -27,6 +27,7 @@ const Home = () => {
             <div key={workout._id} className="col-md-4 mb-4">
               <div className="card">
                 <div className="card-body">
+                  <h5 className="workout-name">{workout.title}</h5>
                   <WorkoutDetails workout={workout} />
                 </div>
               </div>

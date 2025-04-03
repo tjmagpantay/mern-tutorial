@@ -53,3 +53,8 @@ footer {
     padding: 20px;
     text-align: center;
 }
+
+.workout-name {
+    color: red;
+    font-weight: bold;
+}
