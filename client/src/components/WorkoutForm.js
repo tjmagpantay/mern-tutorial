@@ -1,11 +1,12 @@
 import { useState } from "react"; // Added import for useState
+import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap styles
 
 const WorkoutForm = () => {
     const [title, setTittle] = useState("");
-    const [load, setLoad] = useState(false);    
+    const [load, setLoad] = useState("");    
     const [reps, setReps] = useState("");
     const [error, setError] = useState(null);
-   
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const workout = { title, load, reps };
@@ -17,7 +18,7 @@ const WorkoutForm = () => {
             },
         });
         const json = await response.json();
-        if (response.ok) {
+        if (!response.ok) {
             setError(json.error);
         }
         if (response.ok) {
@@ -30,36 +31,41 @@ const WorkoutForm = () => {
     };
 
     return (
-        <form className="create" onSubmit={handleSubmit}>
-            <h3> Add a new workout</h3>
+        <div className="card mt-4">
+            <div className="card-body">
+                <form className="create" onSubmit={handleSubmit}>
+                    <h3 className="card-title">Add a New Workout</h3>
 
-            <labeL>Exercise Title:</labeL>
-            <input
-                type="text"
-                onChange={(e) => setTittle(e.target.value)}
-                value={title}
-            />
+                    <label>Exercise Title:</label>
+                    <input
+                        type="text"
+                        className="form-control mb-3"
+                        onChange={(e) => setTittle(e.target.value)}
+                        value={title}
+                    />
 
-            
-        <labeL>Load (Kg):</labeL>
-            <input
-                type="number"
-                onChange={(e) => setTittle(e.target.value)}
-                value={load}
-            />
+                    <label>Load (Kg):</label>
+                    <input
+                        type="number"
+                        className="form-control mb-3"
+                        onChange={(e) => setLoad(e.target.value)}
+                        value={load}
+                    />
 
-        <labeL>Reps:</labeL>
-            <input
-                type="number"
-                onChange={(e) => setTittle(e.target.value)}
-                value={reps}
-            />
+                    <label>Reps:</label>
+                    <input
+                        type="number"
+                        className="form-control mb-3"
+                        onChange={(e) => setReps(e.target.value)}
+                        value={reps}
+                    />
 
-            <button className="btn btn-primary mt-3">Add Workout</button>
-            {error && <div className="error">{error}</div>}
-
-        </form>
-    )
-}
+                    <button className="btn btn-primary mt-3">Add Workout</button>
+                    {error && <div className="alert alert-danger mt-3">{error}</div>}
+                </form>
+            </div>
+        </div>
+    );
+};
 
 export default WorkoutForm;
