@@ -23,19 +23,20 @@ const Home = () => {
   return (
     <div className="home container mt-4">
       <div className="row">
-        {workouts &&
-          workouts.map((workout) => (
-            <div key={workout._id} className="col-md-4 mb-4">
-              <div className="card">
+        <div className="col-md-8">
+          {workouts &&
+            workouts.map((workout) => (
+              <div key={workout._id} className="card mb-4">
                 <div className="card-body">
-                  <h5 className="workout-name">{workout.title}</h5>
                   <WorkoutDetails workout={workout} />
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </div>
+        <div className="col-md-4">
+          <WorkoutForm />
+        </div>
       </div>
-      <WorkoutForm /> {/* Moved WorkoutForm outside the map loop */}
     </div>
   );
 };
